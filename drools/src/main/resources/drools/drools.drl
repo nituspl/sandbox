@@ -1,0 +1,22 @@
+import com.example.demo.model.CalcData;
+
+rule "testOlderThan10"
+	when
+		calcData:CalcData(car.age > 10);
+	then
+		calcData.setPrice(10000);
+end;
+
+rule "testOlderThan5"
+	when
+		calcData:CalcData(car.age > 5);
+	then
+		calcData.setPrice(15000);
+end;
+
+rule "testYoungerThan5"
+	when
+		calcData:CalcData(car.age <= 5);
+	then
+		calcData.setPrice(20000);
+end;
